@@ -167,7 +167,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="book graphic manuscript motion_picture report song speech thesis" match="any">
+      <if type="book graphic manuscript motion_picture song speech thesis" match="any">
         <choose>
           <if variable="version" type="book" match="all">
             <!---This is a hack until we have a computer program type -->
@@ -205,14 +205,14 @@
         </choose>
       </else-if>
       <else>
-        <text variable="title"/>
+        <text quotes="true" variable="title"/>
       </else>
     </choose>
   </macro>
   <macro name="title-plus-extra">
     <text macro="title"/>
     <choose>
-      <if type="report thesis" match="any">
+      <if type="thesis" match="any">
         <group prefix=" (" suffix=")" delimiter=", ">
           <group delimiter=" ">
             <text variable="genre"/>
@@ -243,10 +243,6 @@
   <macro name="publisher">
     <choose>
       <if type="report" match="any">
-        <group delimiter=": ">
-          <text variable="publisher-place"/>
-          <text variable="publisher"/>
-        </group>
       </if>
       <else-if type="thesis" match="any">
         <group delimiter=", ">
@@ -264,7 +260,8 @@
           </choose>
           <choose>
             <if type="article-journal article-magazine" match="none">
-              <group delimiter=": ">
+              <group delimiter=", ">
+                <text variable="publisher"/>
                 <choose>
                   <if variable="publisher-place">
                     <text variable="publisher-place"/>
@@ -273,7 +270,6 @@
                     <text variable="event-place"/>
                   </else>
                 </choose>
-                <text variable="publisher"/>
               </group>
             </if>
           </choose>
@@ -468,6 +464,14 @@
       <if type="article article-journal article-magazine article-newspaper" match="any">
         <text variable="container-title" font-style="italic" text-case="title"/>
       </if>
+      <else-if type="report" match="any">
+        <text variable="container-title" text-case="title"/>
+          <group delimiter=" ">
+	    <text variable="publisher"/>
+            <text variable="genre"/>
+            <text variable="number" prefix="No. "/>
+          </group>
+      </else-if>
       <else-if type="bill legal_case legislation" match="none">
         <text variable="container-title" font-style="italic"/>
       </else-if>
