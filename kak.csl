@@ -423,13 +423,16 @@
     <group>
       <choose>
         <if locator="chapter">
-          <label variable="locator" form="long" text-case="capitalize-first"/>
+          <label variable="locator" form="long" text-case="capitalize-first" suffix=" "/>
         </if>
+        <else-if locator="page">
+          <label value=""/>
+        </else-if>
         <else>
-          <label variable="locator" form="short"/>
+          <label variable="locator" form="short" suffix=" "/>
         </else>
       </choose>
-      <text variable="locator" prefix=" "/>
+      <text variable="locator"/>
     </group>
   </macro>
   <macro name="container">
@@ -512,17 +515,19 @@
       </if>
     </choose>
   </macro>
-  <citation et-al-min="3" et-al-use-first="1" et-al-subsequent-min="3" et-al-subsequent-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name">
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name">
     <sort>
       <key macro="author"/>
       <key macro="issued-sort"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
-      <group delimiter=" ">
-        <text macro="author-short"/>
-        <text macro="issued-year"/>
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="author-short"/>
+          <text macro="issued-year"/>
+        </group>
         <text macro="citation-locator"/>
-      </group>
+      </group> 
     </layout>
   </citation>
   <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="1">
