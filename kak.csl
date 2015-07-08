@@ -355,23 +355,8 @@
   <macro name="locators">
     <choose>
       <if type="article-journal article-magazine" match="any">
-        <group prefix=", " delimiter=", ">
-          <group>
-            <text variable="volume" font-style="italic"/>
-            <text variable="issue" prefix="(" suffix=")"/>
-          </group>
-          <text variable="page"/>
-        </group>
-        <choose>
-          <!--for advanced online publication-->
-          <if variable="issued">
-            <choose>
-              <if variable="page issue" match="none">
-                <text variable="status" prefix=". "/>
-              </if>
-            </choose>
-          </if>
-        </choose>
+        <text variable="volume" font-style="italic" prefix=" "/>
+        <text variable="page" prefix=": "/>
       </if>
       <else-if type="article-newspaper">
         <group delimiter=" " prefix=", ">
@@ -538,7 +523,7 @@
     </sort>
     <layout>
       <group suffix=".">
-	<text macro="author"/>
+        <text macro="author"/>
         <group delimiter=", ">
           <text macro="issued"/>
           <text macro="title-plus-extra"/>
