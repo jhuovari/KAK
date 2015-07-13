@@ -23,12 +23,12 @@
       <if type="chapter paper-conference entry-dictionary entry-encyclopedia" match="any">
         <group delimiter=", " suffix=", ">
           <names variable="container-author" delimiter=", ">
-            <name and="symbol" initialize-with=". " delimiter=", "/>
-            <label form="short" prefix=" (" text-case="title" suffix=")"/>
+            <name form="long" name-as-sort-order="all" and="text" initialize-with=". " delimiter=", "/>
+            <label form="short" prefix=" (" text-case="lowercase" suffix=")"/>
           </names>
           <names variable="editor translator" delimiter=", ">
-            <name and="symbol" initialize-with=". " delimiter=", "/>
-            <label form="short" prefix=" (" text-case="title" suffix=")"/>
+            <name form="long" name-as-sort-order="all" and="text" initialize-with=". " delimiter=", "/>
+            <label form="short" prefix=" (" text-case="lowercase" suffix=")"/>
           </names>
         </group>
       </if>
@@ -53,7 +53,7 @@
   <macro name="author">
     <names variable="author">
       <name name-as-sort-order="all" and="text" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="never"/>
-      <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
+      <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
         <names variable="translator"/>
@@ -423,7 +423,7 @@
         <group>
           <choose>
             <if type="chapter paper-conference entry-encyclopedia" match="any">
-              <text term="in" text-case="capitalize-first" suffix=" "/>
+              <text term="in" suffix=" "/>
             </if>
           </choose>
           <text macro="container-contributors"/>
