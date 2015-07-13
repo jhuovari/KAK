@@ -385,11 +385,8 @@
               </group>
             </else>
           </choose>
-          <group>
-            <label variable="page" form="short" suffix=" "/>
-            <text variable="page"/>
-          </group>
         </group>
+      <text variable="page" prefix=": "/>
       </else-if>
       <else-if type="legal_case">
         <group prefix=" (" suffix=")" delimiter=" ">
