@@ -120,7 +120,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="book graphic manuscript motion_picture song speech thesis" match="any">
+      <if type="book graphic manuscript motion_picture song speech thesis webpage post-weblog" match="any">
         <choose>
           <if variable="version" type="book" match="all">
             <!---This is a hack until we have a computer program type -->
