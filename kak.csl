@@ -131,14 +131,15 @@
           </if>
           <else>
             <choose>
-              <if type="webpage">
-                <group delimiter=" ">
-                  <text term="retrieved" text-case="capitalize-first" suffix=" "/>
-                  <group>
-                    <date variable="accessed" form="text" suffix=", "/>
-                  </group>
-                  <text term="from"/>
-                  <text variable="URL"/>
+              <if type="webpage post-weblog">
+                <text variable="URL"/>
+                <group delimiter=" " prefix=" (" suffix=")">
+                  <text term="accessed"/>
+                  <date variable="accessed" form="numeric">
+                    <date-part name="year"/>
+                    <date-part name="month" form="numeric" />
+                    <date-part name="day"/>
+                  </date>
                 </group>
               </if>
               <else>
@@ -532,6 +533,7 @@
           <text macro="event"/>
           <text macro="publisher"/>
         </group>
+        <text macro="access" prefix=", "/>
       </group>
     </layout>
   </bibliography>
