@@ -324,7 +324,7 @@
   <macro name="locators">
     <choose>
       <if type="article-journal article-magazine" match="any">
-        <text variable="volume" font-style="italic" prefix=" "/>
+        <text variable="volume" prefix=" "/>
         <text variable="page" prefix=": "/>
       </if>
       <else-if type="article-newspaper">
