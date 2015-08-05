@@ -76,18 +76,18 @@
         <choose>
           <if type="report">
             <text variable="publisher"/>
-            <text variable="title" form="short" font-style="italic"/>
+            <text variable="title" form="short"/>
           </if>
           <else-if type="legal_case">
-            <text variable="title" font-style="italic"/>
+            <text variable="title"/>
           </else-if>
           <else-if type="bill book graphic legislation motion_picture song" match="any">
-            <text variable="title" form="short" font-style="italic"/>
+            <text variable="title" form="short"/>
           </else-if>
           <else-if variable="reviewed-author">
             <choose>
               <if variable="reviewed-title" match="none">
-                <text variable="title" form="short" font-style="italic" prefix="Review of "/>
+                <text variable="title" form="short" prefix="Review of "/>
               </if>
               <else>
                 <text variable="title" form="short" quotes="true"/>
@@ -118,28 +118,13 @@
   </macro>
   <macro name="title">
     <choose>
-      <if variable="genre" type="report" match="all">
-        <!---This is a hack for working papers -->
-        <text quotes="true" variable="title"/>
-      </if>
-      <else-if type="report book graphic manuscript motion_picture song speech thesis webpage post-weblog" match="any">
-        <choose>
-          <if variable="version" type="book" match="all">
-            <!---This is a hack until we have a computer program type -->
-            <text variable="title"/>
-          </if>
-          <else>
-            <text variable="title" font-style="italic"/>
-          </else>
-        </choose>
-      </else-if>
-      <else-if variable="reviewed-author">
+      <if variable="reviewed-author">
         <choose>
           <if variable="reviewed-title">
             <group delimiter=" ">
               <text variable="title"/>
               <group delimiter=", " prefix="[" suffix="]">
-                <text variable="reviewed-title" font-style="italic" prefix="Review of "/>
+                <text variable="reviewed-title" prefix="Review of "/>
                 <names variable="reviewed-author" delimiter=", ">
                   <label form="verb-short" suffix=" "/>
                   <name and="symbol" initialize-with=". " delimiter=", "/>
@@ -150,7 +135,7 @@
           <else>
             <!-- assume `title` is title of reviewed work -->
             <group delimiter=", " prefix="[" suffix="]">
-              <text variable="title" font-style="italic" prefix="Review of "/>
+              <text variable="title" prefix="Review of "/>
               <names variable="reviewed-author" delimiter=", ">
                 <label form="verb-short" suffix=" "/>
                 <name and="symbol" initialize-with=". " delimiter=", "/>
@@ -158,9 +143,9 @@
             </group>
           </else>
         </choose>
-      </else-if>
+      </if>
       <else>
-        <text quotes="true" variable="title"/>
+        <text variable="title"/>
       </else>
     </choose>
   </macro>
@@ -323,6 +308,7 @@
     <choose>
       <if type="article-journal article-magazine" match="any">
         <text variable="volume" prefix=" "/>
+        <text variable="number" prefix="(" suffix=")"/>  
         <text variable="page" prefix=": "/>
       </if>
       <else-if type="article-newspaper">
@@ -403,12 +389,13 @@
   <macro name="container-title">
     <choose>
       <if type="article article-journal article-magazine article-newspaper" match="any">
-        <text variable="container-title" font-style="italic" text-case="title"/>
+        <text variable="container-title" text-case="title"/>
       </if>
       <else-if type="report" match="any">
         <text variable="container-title" text-case="title"/>
           <group delimiter=" ">
 	          <text variable="publisher"/>
+	          <text variable="collection-title"/>
             <text variable="genre"/>
             <choose>
               <if variable="genre">
@@ -422,7 +409,7 @@
           <text variable="publisher-place" prefix=", "/>
       </else-if>
       <else-if type="bill legal_case legislation" match="none">
-        <text variable="container-title" font-style="italic"/>
+        <text variable="container-title"/>
       </else-if>
     </choose>
   </macro>
