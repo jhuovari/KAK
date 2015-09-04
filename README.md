@@ -5,7 +5,9 @@ Works with: [Zotero](https://www.zotero.org/),
 and [other](http://citationstyles.org/) reference managers.
 
 Should follow KAK [sitation rules]
-(http://www.taloustieteellinenyhdistys.fi/kansantaloudellinen-aikakauskirja/ohjeita-kirjoittajille/).
+(http://www.taloustieteellinenyhdistys.fi/kansantaloudellinen-aikakauskirja/ohjeita-kirjoittajille/) for most used publication types.
+
+Please report problems.
 
 Note that there is a problem with working papers and reports. 
 In cls working papers should be filed as reports. 
@@ -16,7 +18,6 @@ paper formating for reports when the Report type (Raportin tyyppi)
 field is not empty. (Usually filed with term: working paper or discussion paper)
 Otherwise the book-like report formating is used for reports.
 
-Please report problems.
 
 Based on https://github.com/citation-style-language/styles/blob/master/apa.csl
 
