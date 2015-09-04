@@ -1,14 +1,20 @@
 # KAK
-Sitation style file for Kansantaloudellinen aikakauskirja http://www.taloustieteellinenyhdistys.fi/kansantaloudellinen-aikakauskirja/
+Sitation style file for Kansantaloudellinen aikakauskirja http://www.taloustieteellinenyhdistys.fi/kansantaloudellinen-aikakauskirja/. 
+Works with: [Zotero](https://www.zotero.org/), 
+[Mendeley](https://www.mendeley.com/), [Papers](http://www.papersapp.com/) 
+and [other](http://citationstyles.org/) reference managers.
 
 Should follow KAK [sitation rules]
 (http://www.taloustieteellinenyhdistys.fi/kansantaloudellinen-aikakauskirja/ohjeita-kirjoittajille/).
 
-A problem are working papers and reports, as in cls working papers should be 
-filed as reports. The KAK, however, have a different formating rules for 
-working papers and book-like reports. The issue is solved so that the working
-paper formating is used if the Report type (Raportin tyyppi) field is used. 
-Otherwise the book-like report formating is used.
+Note that there is a problem with working papers and reports. 
+In cls working papers should be filed as reports. 
+The KAK, however, has a different formating rules for 
+working papers and book-like reports. 
+The issue is solved by using the working
+paper formating for reports when the Report type (Raportin tyyppi) 
+field is not empty. (Usually filed with term: working paper or discussion paper)
+Otherwise the book-like report formating is used for reports.
 
 Please report problems.
 
